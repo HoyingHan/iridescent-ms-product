@@ -11,26 +11,24 @@
     <groupId>com.iridescent</groupId>
     <artifactId>product</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+
+    <modules>
+        <module>iridescent-ms-product-common</module>
+        <module>iridescent-ms-product-service</module>
+        <module>iridescent-ms-product-api</module>
+    </modules>
+    <packaging>pom</packaging>
+
+
+
     <name>product</name>
-    <description>Demo project for Spring Boot</description>
 
     <properties>
         <java.version>1.8</java.version>
         <spring-cloud.version>Finchley.M2</spring-cloud.version>
+        <iridescent-ms-product-common.version>0.0.1-SNAPSHOT</iridescent-ms-product-common.version>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
 
     <dependencyManagement>
         <dependencies>
@@ -40,6 +38,11 @@
                 <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.iridescent</groupId>
+                <artifactId>iridescent-ms-product-common</artifactId>
+                <version>${iridescent-ms-product-common.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -55,9 +58,20 @@
 
     <repositories>
         <repository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
             <id>spring-milestones</id>
             <name>Spring Milestones</name>
             <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
         </repository>
     </repositories>
 
