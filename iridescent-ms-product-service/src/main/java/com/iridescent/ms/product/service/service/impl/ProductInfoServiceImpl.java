@@ -8,7 +8,6 @@ import com.iridescent.ms.product.common.vo.ProductInfoVo;
 import com.iridescent.ms.product.service.dao.ProductInfoDao;
 import com.iridescent.ms.product.service.domain.ProductInfo;
 import com.iridescent.ms.product.service.service.ProductInfoService;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -17,7 +16,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Description:
+ * Description: 商品服务实现
  *
  * @author 陌北有棵树
  * @version 2019/3/11
@@ -48,5 +47,12 @@ public class ProductInfoServiceImpl implements ProductInfoService, ProductInfoAp
 
         return BeanConvertUtils.deepSafeConvertByFastJson(productInfoList, ProductInfo.class, ProductInfoVo.class);
 
+    }
+
+
+    @Override
+    public String deleteProductInfo(String productId) {
+        productInfoDao.deleteById(productId);
+        return productId;
     }
 }

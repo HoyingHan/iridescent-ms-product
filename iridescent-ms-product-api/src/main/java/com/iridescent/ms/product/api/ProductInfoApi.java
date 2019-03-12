@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 /**
- * Description:
+ * Description: 商品信息API
  *
  * @author 陌北有棵树
  * @version 2019/3/11
@@ -28,5 +28,8 @@ public interface ProductInfoApi {
     List<ProductInfoVo> getProductInfoList(@RequestParam(value = "roleId", required = false) Integer roleId,
                             @RequestParam(value = "productStatus", required = false) Integer productStatus);
 
+
+    @RequestMapping(value = "/rest/api/v1/product", method = RequestMethod.DELETE)
+    String deleteProductInfo(@RequestParam(value = "productId", required = false) String productId);
 
 }
