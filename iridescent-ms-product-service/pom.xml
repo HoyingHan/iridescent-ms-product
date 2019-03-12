@@ -58,6 +58,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-amqp</artifactId>
         </dependency>
+
+
+        <dependency>
+            <groupId>com.iridescent</groupId>
+            <artifactId>iridescent-ms-product-api</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 

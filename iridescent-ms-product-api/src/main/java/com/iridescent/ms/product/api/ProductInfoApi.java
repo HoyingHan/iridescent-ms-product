@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 /**
  * Description:
  *
@@ -19,5 +21,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface ProductInfoApi {
 
     @RequestMapping(value = "/rest/api/v1/product/add", method = RequestMethod.POST)
-    Boolean acceptApplicationForm(@RequestBody ProductInfoVo productInfoVo);
+    ProductInfoVo addProductInfo(@RequestBody ProductInfoVo productInfoVo);
+
+
+    @RequestMapping(value = "/rest/api/v1/product/list", method = RequestMethod.GET)
+    List<ProductInfoVo> getProductInfoList(@RequestParam(value = "roleId", required = false) Integer roleId,
+                            @RequestParam(value = "productStatus", required = false) Integer productStatus);
+
+
 }
