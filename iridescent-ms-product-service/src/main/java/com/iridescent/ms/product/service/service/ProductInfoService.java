@@ -18,7 +18,7 @@ import java.util.List;
 
 public interface ProductInfoService{
 
-    ProductInfoVo addProductInfo(@RequestBody ProductInfoVo productInfoVo);
+    Boolean addProductInfo(@RequestBody ProductInfoVo productInfoVo);
 
     List<ProductInfoVo> getProductInfoList(@RequestParam(value = "roleId", required = false) Integer roleId,
                                            @RequestParam(value = "productStatus", required = false) Integer productStatus);

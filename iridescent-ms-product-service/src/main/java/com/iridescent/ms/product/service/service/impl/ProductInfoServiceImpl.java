@@ -28,9 +28,9 @@ public class ProductInfoServiceImpl implements ProductInfoService, ProductInfoAp
     private ProductInfoDao productInfoDao;
 
     @Override
-    public ProductInfoVo addProductInfo(ProductInfoVo productInfoVo) {
+    public Boolean addProductInfo(ProductInfoVo productInfoVo) {
         ProductInfo info = productInfoDao.save(BeanConvertUtils.deepSafeConvertByFastJson(productInfoVo, ProductInfoVo.class, ProductInfo.class));
-        return BeanConvertUtils.deepSafeConvertByFastJson(info, ProductInfo.class, ProductInfoVo.class);
+        return true;
     }
 
 

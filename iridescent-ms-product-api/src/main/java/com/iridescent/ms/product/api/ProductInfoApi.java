@@ -21,7 +21,7 @@ import java.util.List;
 public interface ProductInfoApi {
 
     @RequestMapping(value = "/rest/api/v1/product/add", method = RequestMethod.POST)
-    ProductInfoVo addProductInfo(@RequestBody ProductInfoVo productInfoVo);
+    Boolean addProductInfo(@RequestBody ProductInfoVo productInfoVo);
 
 
     @RequestMapping(value = "/rest/api/v1/product/list", method = RequestMethod.GET)
