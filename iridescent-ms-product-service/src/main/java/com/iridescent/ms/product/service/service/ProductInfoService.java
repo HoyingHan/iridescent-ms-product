@@ -1,6 +1,7 @@
 package com.iridescent.ms.product.service.service;
 
 
+import com.iridescent.ms.product.common.dto.ProductInfoDto;
 import com.iridescent.ms.product.service.domain.ProductInfo;
 
 /**
@@ -13,5 +14,7 @@ import com.iridescent.ms.product.service.domain.ProductInfo;
 
 public interface ProductInfoService {
 
-    ProductInfo save(ProductInfo productInfo);
+    ProductInfoDto save(ProductInfo productInfo);
+
+
 }
