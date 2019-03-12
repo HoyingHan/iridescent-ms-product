@@ -51,6 +51,17 @@ public class ProductInfoServiceImpl implements ProductInfoService, ProductInfoAp
 
 
     @Override
+    public List<ProductInfoVo> getProductListByIds(List<String> productIds) {
+
+        List<ProductInfo> productInfoList = productInfoDao.findAllById(productIds);
+        if (CollectionUtils.isEmpty(productInfoList)) {
+            return Lists.newArrayList();
+        }
+        return BeanConvertUtils.deepSafeConvertByFastJson(productInfoList,ProductInfo.class,ProductInfoVo.class);
+    }
+
+
+    @Override
     public String deleteProductInfo(String productId) {
         productInfoDao.deleteById(productId);
         return productId;

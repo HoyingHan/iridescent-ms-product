@@ -23,6 +23,7 @@ public interface ProductInfoService{
     List<ProductInfoVo> getProductInfoList(@RequestParam(value = "roleId", required = false) Integer roleId,
                                            @RequestParam(value = "productStatus", required = false) Integer productStatus);
 
+    List<ProductInfoVo> getProductListByIds(@RequestParam(value = "productIds", required = false) List<String> productIds);
 
     String deleteProductInfo(@RequestParam(value = "productId", required = false) String productId);
 

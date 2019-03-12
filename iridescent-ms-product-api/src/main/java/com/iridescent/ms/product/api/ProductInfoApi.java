@@ -29,6 +29,10 @@ public interface ProductInfoApi {
                             @RequestParam(value = "productStatus", required = false) Integer productStatus);
 
 
+    @RequestMapping(value = "/rest/api/v1/product/getListByIds", method = RequestMethod.GET)
+    List<ProductInfoVo> getProductListByIds(@RequestParam(value = "productIds", required = false) List<String> productIds);
+
+
     @RequestMapping(value = "/rest/api/v1/product", method = RequestMethod.DELETE)
     String deleteProductInfo(@RequestParam(value = "productId", required = false) String productId);
 
