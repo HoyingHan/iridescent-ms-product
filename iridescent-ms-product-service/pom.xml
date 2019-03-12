@@ -15,6 +15,7 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <iridescent-ms-product-api.version>0.0.1-SNAPSHOT</iridescent-ms-product-api.version>
     </properties>
 
     <dependencies>
@@ -63,7 +64,7 @@
         <dependency>
             <groupId>com.iridescent</groupId>
             <artifactId>iridescent-ms-product-api</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${iridescent-ms-product-api.version}</version>
         </dependency>
     </dependencies>
 
