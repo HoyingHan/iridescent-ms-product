@@ -8,6 +8,7 @@ import com.iridescent.ms.product.common.vo.ProductInfoVo;
 import com.iridescent.ms.product.service.dao.ProductInfoDao;
 import com.iridescent.ms.product.service.domain.ProductInfo;
 import com.iridescent.ms.product.service.service.ProductInfoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -24,7 +25,7 @@ import java.util.stream.Collectors;
 @Service("ProductInfoService")
 public class ProductInfoServiceImpl implements ProductInfoService, ProductInfoApi {
 
-    @Resource
+    @Autowired
     private ProductInfoDao productInfoDao;
 
     @Override
