@@ -72,4 +72,6 @@ public class ProductInfoServiceImpl implements ProductInfoService, ProductInfoAp
         productInfoDao.deleteById(productId);
         return productId;
     }
+
+
 }

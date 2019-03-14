@@ -14,7 +14,7 @@ import java.util.List;
  * @version 2019/3/11
  */
 
-@FeignClient("productInfoApi")
+@FeignClient(value = "product")
 public interface ProductInfoApi {
 
     @PostMapping(value = "/rest/api/v1/product/add")
