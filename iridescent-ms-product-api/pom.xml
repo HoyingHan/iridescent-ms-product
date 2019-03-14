@@ -31,9 +31,21 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-feign</artifactId>
+        </dependency>
+
+
+
+        <dependency>
             <groupId>com.iridescent</groupId>
             <artifactId>iridescent-ms-product-common</artifactId>
             <version>${iridescent-ms-product-common.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
 
         </dependencies>
