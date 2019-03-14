@@ -2,9 +2,9 @@ package com.iridescent.ms.product.service.service;
 
 
 
+import com.iridescent.ms.product.api.ProductInfoApi;
 import com.iridescent.ms.product.common.vo.ProductInfoVo;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,17 +16,6 @@ import java.util.List;
  */
 
 
-public interface ProductInfoService{
-
-    Boolean addProductInfo(@RequestBody ProductInfoVo productInfoVo);
-
-    List<ProductInfoVo> getProductInfoList(@RequestParam(value = "roleId", required = false) Integer roleId,
-                                           @RequestParam(value = "productStatus", required = false) Integer productStatus);
-
-    List<ProductInfoVo> getProductListByIds(@RequestParam(value = "productIds", required = false) List<String> productIds);
-
-    String deleteProductInfo(@RequestParam(value = "productId", required = false) String productId);
-
-
+public interface ProductInfoService extends ProductInfoApi {
 
 }

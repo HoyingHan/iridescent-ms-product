@@ -9,8 +9,8 @@ import com.iridescent.ms.product.service.dao.ProductInfoDao;
 import com.iridescent.ms.product.service.domain.ProductInfo;
 import com.iridescent.ms.product.service.service.ProductInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -22,21 +22,24 @@ import java.util.stream.Collectors;
  * @author 陌北有棵树
  * @version 2019/3/11
  */
-@Service("ProductInfoService")
+@RestController
 public class ProductInfoServiceImpl implements ProductInfoService, ProductInfoApi {
 
-    @Autowired
+    @Resource
     private ProductInfoDao productInfoDao;
 
     @Override
-    public Boolean addProductInfo(ProductInfoVo productInfoVo) {
-        ProductInfo info = productInfoDao.save(BeanConvertUtils.deepSafeConvertByFastJson(productInfoVo, ProductInfoVo.class, ProductInfo.class));
+    @PostMapping(value = "/rest/api/v1/product/add")
+    public Boolean addProductInfo(@RequestBody ProductInfoVo productInfoVo) {
+        productInfoDao.save(BeanConvertUtils.deepSafeConvertByFastJson(productInfoVo, ProductInfoVo.class, ProductInfo.class));
         return true;
     }
 
 
     @Override
-    public List<ProductInfoVo> getProductInfoList(Integer roleId, Integer productStatus) {
+    @GetMapping(value = "/rest/api/v1/product/list")
+    public List<ProductInfoVo> getProductInfoList(@RequestParam(value = "roleId", required = false) Integer roleId,
+                                           @RequestParam(value = "productStatus", required = false) Integer productStatus) {
 
         List<ProductInfo> productInfoList = productInfoDao.findAll();
         if (CollectionUtils.isEmpty(productInfoList)) {
@@ -52,7 +55,8 @@ public class ProductInfoServiceImpl implements ProductInfoService, ProductInfoAp
 
 
     @Override
-    public List<ProductInfoVo> getProductListByIds(List<String> productIds) {
+    @GetMapping(value = "/rest/api/v1/product/getListByIds")
+    public List<ProductInfoVo> getProductListByIds(@RequestParam(value = "productIds", required = false) List<String> productIds) {
 
         List<ProductInfo> productInfoList = productInfoDao.findAllById(productIds);
         if (CollectionUtils.isEmpty(productInfoList)) {
@@ -63,7 +67,8 @@ public class ProductInfoServiceImpl implements ProductInfoService, ProductInfoAp
 
 
     @Override
-    public String deleteProductInfo(String productId) {
+    @DeleteMapping(value = "/rest/api/v1/product")
+    public String deleteProductInfo(@RequestParam(value = "productId", required = false) String productId) {
         productInfoDao.deleteById(productId);
         return productId;
     }

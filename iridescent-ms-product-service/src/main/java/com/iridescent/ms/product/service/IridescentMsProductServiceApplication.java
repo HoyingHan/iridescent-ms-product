@@ -1,4 +1,4 @@
-package com.iridescent.ms.product.service.boot;
+package com.iridescent.ms.product.service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,7 +15,6 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@ComponentScan(basePackages = {"com.iridescent.ms.product.service.dao"})
 public class IridescentMsProductServiceApplication {
 
     public static void main(String[] args) {
