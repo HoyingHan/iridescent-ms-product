@@ -1,6 +1,7 @@
 package com.iridescent.ms.product.api;
 
 
+import com.iridescent.ms.product.api.fallback.ProductInfoApiFallbackFactory;
 import com.iridescent.ms.product.common.vo.ProductInfoVo;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +15,7 @@ import java.util.List;
  * @version 2019/3/11
  */
 
-@FeignClient(value = "product")
+@FeignClient(value = "product",fallbackFactory = ProductInfoApiFallbackFactory.class)
 public interface ProductInfoApi {
 
     @PostMapping(value = "/rest/api/v1/product/add")
